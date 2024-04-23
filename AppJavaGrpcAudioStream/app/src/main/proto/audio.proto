@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "com.proto.audio";
+
+message PeticionDescargarAudio{
+    string nombre = 1;
+}
+
+message RespuestaChunkAudio{
+    bytes datos = 1;
+}
+
+service ServicioAudio{
+    rpc descargarAudio(PeticionDescargarAudio) returns (stream RespuestaChunkAudio);
+}
